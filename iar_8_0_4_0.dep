@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>3001271311</fileChecksum>
+    <fileChecksum>1538052957</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-            <file>$TOOLKIT_DIR$\inc\msp430.h</file>
-            <file>$TOOLKIT_DIR$\inc\in430.h</file>
             <file>$TOOLKIT_DIR$\inc\msp430f1232.h</file>
             <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
-            <file>$PROJ_DIR$\Debug\Exe\iar_8_0_4_0.ulp</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\iar_8_0_4_0.pbd</file>
-            <file>$PROJ_DIR$\Debug\Exe\iar_8_0_4_0.d43</file>
-            <file>$PROJ_DIR$\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\in430.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\iar_8_0_4_0.txt</file>
+            <file>$PROJ_DIR$\typedefs.h</file>
+            <file>$TOOLKIT_DIR$\config\linker\lnk430f1232.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\iar_8_0_4_0.map</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+            <file>$PROJ_DIR$\pindefinitions.h</file>
+            <file>$PROJ_DIR$\configuration.h</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\main.c</name>
@@ -25,13 +29,32 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 6</file>
+                    <file> 1</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
+                    <name>ICC430</name>
+                    <file> 3 6 2 13 8 12</file>
+                </tool>
+                <tool>
                     <name>BICOMP</name>
-                    <file> 0 2 3 1</file>
+                    <file> 2 6 3 13 8 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\iar_8_0_4_0.txt</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 10</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 9 4 11</file>
                 </tool>
             </inputs>
         </file>
@@ -40,21 +63,10 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 8</file>
-                </tool>
-                <tool>
-                    <name>ULP430</name>
-                    <file> 5</file>
+                    <file> 7 10</file>
                 </tool>
             </outputs>
         </file>
-        <forcedrebuild>
-            <name>[MULTI_TOOL]</name>
-            <tool>XLINK</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>[REBUILD_ALL]</name>
-        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>
