@@ -1,9 +1,9 @@
-
-#include <MSP430F1232.h>
 #include "configuration.h"
 
 int main(void)
 {
+  u8 u8Data = 0;
+    
   WDTCTL = WDTPW + WDTHOLD;                 // Stop watchdog timer
   // Intialize the I/O registers
   P1SEL |= P1SEL_INIT;
@@ -40,8 +40,14 @@ int main(void)
       P2OUT &= ~PX_1_Location;
     }
     
+    P2OUT &= ~PX_4_Location;
+    _74HC595_SendByte(_74HC595_EnCode(u8Data%10,false));
+    _74HC595_SendByte(_74HC595_EnCode(u8Data%100/10,true));
+    _74HC595_SendByte(_74HC595_EnCode(u8Data/100,false));
+    P2OUT |= PX_4_Location;
     
-
+    u8Data++;
+    
     i = 50000;                              // Delay
     do (i--);
     while (i != 0);
