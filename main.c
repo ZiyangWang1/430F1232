@@ -4,7 +4,8 @@ int main(void)
 {
   u32 u32Display = 0;
   u8 u8Data = 0;
-  volatile unsigned int i = 0;
+  u16 i = 0;
+  u32 u32PWMCounter = 0;
     
   WDTCTL = WDTPW + WDTHOLD;                 // Stop watchdog timer
   // Intialize the I/O registers
@@ -31,6 +32,7 @@ int main(void)
   for (;;)
   {
     i++;
+    u32PWMCounter++;
     
     ADC10CTL0 |= ENC + ADC10SC;             // Sampling and conversion start
     __bis_SR_register(CPUOFF + GIE);        // LPM0, ADC10_ISR will force exit
@@ -45,7 +47,18 @@ int main(void)
       P3OUT &= ~PX_0_Location;
       P2OUT &= ~PX_1_Location;
     }
-      
+    
+    if(u32PWMCounter%15 < ADC10MEM / 68)
+    {
+      P1OUT |= PX_2_Location;
+      P3OUT |= PX_6_Location;
+    }
+    else
+    {
+      P1OUT &= ~PX_2_Location;
+      P3OUT &= ~PX_6_Location;
+    }
+    
     if(i==1000)
     {
       P1OUT ^= PX_3_Location;                 // Toggle P1.3 using exclusive-OR
